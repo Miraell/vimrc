@@ -31,7 +31,15 @@ Plug 'nelsyeung/twig.vim'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'vim-vdebug/vdebug'
+
+Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'shawncplus/phpcomplete.vim'
+
 call plug#end()
+
+let g:gutentags_enabled = 1
 
 set number
 set tabstop=4
@@ -50,11 +58,10 @@ map <leader>sn ]s
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 
 set completeopt=longest,menuone
 
-set nofixendofline
 set noswapfile
 
 autocmd BufWritePre * %s/\s\+$//e
