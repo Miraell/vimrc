@@ -25,14 +25,24 @@ Plug 'nelsyeung/twig.vim'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'yuezk/vim-js'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'codota/tabnine-vim'
+
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
+
+"autocmd FileType php setlocal ts=4 sts=4 sw=4
+"autocmd FileType vue setlocal ts=2 sts=2 sw=2
+"autocmd FileType js setlocal ts=2 sts=2 sw=2
 
 set number
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set expandtabset completeopt=longest,menuone
 
 set statusline+=%#warningmsg#
 set statusline+=%*
@@ -77,3 +87,5 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+
