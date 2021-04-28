@@ -29,36 +29,48 @@ Plug 'yuezk/vim-js'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'codota/tabnine-vim'
-
 Plug 'airblade/vim-gitgutter'
+
+Plug 'dkprice/vim-easygrep'
+
+Plug 'mg979/vim-visual-multi'
 
 call plug#end()
 
-"autocmd FileType php setlocal ts=4 sts=4 sw=4
-"autocmd FileType vue setlocal ts=2 sts=2 sw=2
-"autocmd FileType js setlocal ts=2 sts=2 sw=2
+set nocompatible
+
+autocmd FileType php setlocal ts=4 sts=4 sw=4
+autocmd FileType vue setlocal ts=2 sts=2 sw=2
+autocmd FileType js setlocal ts=2 sts=2 sw=2
 
 set number
 set tabstop=4
 set shiftwidth=4
-set expandtabset completeopt=longest,menuone
+"set expandtabset completeopt=longest,menuone
 
 set statusline+=%#warningmsg#
 set statusline+=%*
+
+set hidden
+set shortmess=aFc
 
 nmap <leader>w :w!<cr>
 map <silent> <leader>f :Files<cr>
 map <silent> <leader>g :Grepper<cr>
 map <leader>sn ]s
+nmap <silent> gd :call CocAction('jumpDefinition')<CR>
+nmap <silent> gt :call CocAction('jumpImplementation')<CR>
 
-set completeopt=longest,menuone
+let g:coc_user_config = {}
+let g:coc_user_config['coc.preferences.jumpCommand'] = 'edit'
+
+"set completeopt=longest,menuone
 
 set noswapfile
 
 set nofixendofline
 
-autocmd BufWritePre * %s/\s\+$//e
+"autocmd BufWritePre * %s/\s\+$//e
 
 set hlsearch
 
@@ -76,9 +88,6 @@ set cmdheight=2
 " delays and poor user experience.
 set updatetime=100
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
@@ -87,5 +96,3 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
-
